@@ -1,0 +1,10 @@
+server:
+  port: 8700 #修改端口号
+eureka:
+  instance:
+    hostname: eureka-server #eureka服务端起个名字
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
