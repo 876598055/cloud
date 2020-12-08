@@ -14,17 +14,17 @@
 3. 使用springboot的BindingResult bindingResult接收验证失败异常返回给客户端
 4. 手动验证批次商品数据量
 5. 将数据转发给prismart
-```$xslt
+```$java
 private String integration(@Validated @RequestBody CdiInstructionsBatch args,BindingResult bindingResult){}
 ```
 ```$xslt
 if(batch.getItems()!=null&&batch.getItems().size()>2000){}
 ```
-```$xslt
+```java
 shopWebSender.processBatchRecord(JSON.toJSONString(batch), batch.getStoreCode(), prismart.getUrl(), batch.getBatchNo());
 ```
 *****************************************************************
-####20201208Aldi南对接代理需求变更
+#### 20201208Aldi南对接代理需求变更
 > 变更原因:\
 > 使用@RequestBody CdiInstructionsBatch直接接收客户数据，无法判断客户传送的值为null还是没有传送某个值
 > 导致客户进行对接时无法将prismart某个值置为空。
@@ -35,6 +35,6 @@ shopWebSender.processBatchRecord(JSON.toJSONString(batch), batch.getStoreCode(),
 3. json格式验证可使用alibaba fastjson。
 4. 数据格式验证可使用javax @Valid
 5. 验证失败返回客户端异常信息，验证通过，直接将接受的String转发给prisamrt，保证发送到prismart的数据为客户原始数据
-```$xslt
+```$java
 private String integration(String args){}
 ```
