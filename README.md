@@ -1,4 +1,4 @@
-###Aldi南对接代理功能介绍
+### Aldi南对接代理功能介绍
 - 接收来在客户的对接请求，格式于prismart完全相同
 - 接收客户数据后进行json格式验证，数据类型验证，数据格式验证
     - 必填信息空值验证
@@ -8,7 +8,7 @@
     - 时间类型转换验证
     - 单个对接批次对接商品数量验证，不大于2000
 - 进行以上验证不通过，返回给客户端异常信息，验证通过则将请求转发至prisamrt
-###功能实现
+### 功能实现
 1. 使用springboot注解@Validated验证数据格式 
 2. 使用springboot注解@RequestBody验证json格式
 3. 使用springboot的BindingResult bindingResult接收验证失败异常返回给客户端
